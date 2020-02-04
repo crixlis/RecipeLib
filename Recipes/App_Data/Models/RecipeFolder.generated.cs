@@ -21,7 +21,7 @@ namespace Umbraco.Web.PublishedModels
 {
 	/// <summary>RecipeFolder</summary>
 	[PublishedModel("recipeFolder")]
-	public partial class RecipeFolder : PublishedContentModel
+	public partial class RecipeFolder : PublishedContentModel, INavigationBase
 	{
 		// helpers
 #pragma warning disable 0109 // new is redundant
@@ -43,5 +43,26 @@ namespace Umbraco.Web.PublishedModels
 		{ }
 
 		// properties
+
+		///<summary>
+		/// Keywords: Keywords that describe the content of the page. This is considered optional since most modern search engines don't use this anymore
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.2")]
+		[ImplementPropertyType("keywords")]
+		public global::System.Collections.Generic.IEnumerable<string> Keywords => global::Umbraco.Web.PublishedModels.NavigationBase.GetKeywords(this);
+
+		///<summary>
+		/// Description: A brief description of the content on your page. This text is shown below the title in a google search result and also used for Social Sharing Cards. The ideal length is between 130 and 155 characters
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.2")]
+		[ImplementPropertyType("seoMetaDescription")]
+		public string SeoMetaDescription => global::Umbraco.Web.PublishedModels.NavigationBase.GetSeoMetaDescription(this);
+
+		///<summary>
+		/// Hide in Navigation: If you don't want this page to appear in the navigation, check this box
+		///</summary>
+		[global::System.CodeDom.Compiler.GeneratedCodeAttribute("Umbraco.ModelsBuilder", "8.5.2")]
+		[ImplementPropertyType("umbracoNavihide")]
+		public bool UmbracoNavihide => global::Umbraco.Web.PublishedModels.NavigationBase.GetUmbracoNavihide(this);
 	}
 }

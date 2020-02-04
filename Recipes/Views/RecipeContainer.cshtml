@@ -1,0 +1,48 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoViewPage<ContentModels.RecipeContainer>
+@using ContentModels = Umbraco.Web.PublishedModels;
+@{
+
+    Layout = "master.cshtml";
+
+    var categrories = Model.Children<RecipeFolder>();
+
+    <section class="section">
+        <div class="container">
+            <div class="row">
+                <h1>@Model.Name</h1>
+                <p>
+                    orem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas eget elit facilisis, 
+                    cursus libero a, blandit arcu. Phasellus accumsan tellus sit amet odio pretium faucibus. Mauris hendrerit dui ac suscipit faucibus. P
+                    ellentesque faucibus ultricies venenatis. Pellentesque erat nulla, tristique sed orci nec, ultricies imperdiet urna. Nam molestie, leo eu dapibus fermentum, 
+                    diam ante laoreet nisl, in interdum diam mi et lectus. Vivamus condimentum sit amet tellus ac rhoncus. Nam facilisis orci at urna tempus, ac euismod arcu egestas. 
+                    Quisque fermentum odio et tortor porta euismod. Aenean sapien dolor, semper at mi at, placerat sollicitudin neque. Vivamus odio ipsum, pellentesque eu libero ac, hendrerit rutrum velit.
+                </p>
+                @if (categrories.Any())
+                {
+
+                    <div class="dropdown">
+                        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+                            Category
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdown">
+                            @foreach (var cat in categrories)
+                            {
+                                <li>@cat.Name</li>
+                                <ul>
+                                    @foreach (Recipe recipe in cat.Children)
+                                    {
+                                        <li>@recipe.Name</li>
+                                    }
+                                </ul>
+
+                            }
+                        </ul>
+                    </div>
+
+                }
+            </div>
+        </div>
+    </section>
+}
+
