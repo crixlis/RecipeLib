@@ -17,18 +17,19 @@
     <meta name="description" content="">
     <meta name="author" content="Crixlis">
 
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-            integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-            crossorigin="anonymous"></script>
-
-    <!-- Latest compiled and minified JavaScript -->
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
     <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="~/css/main.css" />
-    @RenderSection("Header", required: false)
+
 </head>
 
 <body class="frontpage theme-font-@font theme-color-@colorTheme">
@@ -39,7 +40,6 @@
     </div>
 
     <header class="header">
-
         <div class="logo">
             @if (home.SiteLogo != null && !string.IsNullOrEmpty(home.SiteLogo.Url))
             {
@@ -47,8 +47,6 @@
                     <img class="logo-image" src="@home.SiteLogo.Url" alt="@home.Sitename">
                 </div>
             }
-        </div>
-
         <div class="mobile-nav-handler">
             <div class="hamburger lines" id="toggle-nav">
                 <span></span>
@@ -59,17 +57,11 @@
 
     <main>
         @RenderBody()
+        <footer class="container">
+            <p class="float-right"><a href="#">Back to top</a></p>
+            <p>&copy; @DateTime.Now.Year @(home.FooterHeader) -  @(home.FooterDescription)</p>
+        </footer>
     </main>
-
-    <footer class="section--themed">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12 ta-center">
-                    @home.FooterAddress
-                </div>
-            </div>
-        </div>
-    </footer>
 
     <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha256-cCueBR6CsyA4/9szpPfrX3s49M9vUU5BgtiJj06wt/s=" crossorigin="anonymous"></script>
     <script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>

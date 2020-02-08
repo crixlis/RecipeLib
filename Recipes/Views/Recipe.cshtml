@@ -3,40 +3,48 @@
     Layout = "master.cshtml";
 }
 
-<div>
-    @{
-        <span>@(!string.IsNullOrEmpty(@Model.Name) ? $"Gerecht : { @Model.Name}" : "Geen gerechtnaam")</span><br />
-        if (Model.Rating > 0) {
-            <span>Rating: </span>
-            for (int i = 0; i < Model.Rating; i++)
+<section class="section section">
+    <div>
+        @{
+            <span>@(!string.IsNullOrEmpty(@Model.Name) ? $"Gerecht : { @Model.Name}" : "Geen gerechtnaam")</span><br />
+            if (Model.Rating > 0)
             {
-               <span>&#9733</span>
-            }
-            <br/>
-        }
-
-
-        if (Model.TotalTime > 0)
-        {
-            <span>@($"Bereidingstijd: {Model.TotalTime} minuten")</span><br />
-        }
-
-        var ingredients = Model.Ingredients;
-
-        if (ingredients.Any())
-        {
-            <ul>
-                @foreach (var ingredient in ingredients)
+                <span>Rating: </span>
+                for (int i = 0; i < Model.Rating; i++)
                 {
-                    <li>@ingredient</li>
+                    <span>&#9733</span>
                 }
-            </ul>
-        }
+                <br />
+            }
 
-        if (!string.IsNullOrEmpty(Model.Description.ToString()))
-        {
 
-            <span>@Html.Raw(Model.Description.ToHtmlString())</span>
+            if (Model.TotalTime > 0)
+            {
+                <span>@($"Bereidingstijd: {Model.TotalTime} minuten")</span><br />
+            }
+
+            var ingredients = Model.Ingredients;
+
+            if (ingredients.Any())
+            {
+                <ul>
+                    @foreach (var ingredient in ingredients)
+                    {
+                        <li>@ingredient</li>
+                    }
+                </ul>
+            }
+
+            if (!string.IsNullOrEmpty(Model.Description.ToString()))
+            {
+
+                <span>@Html.Raw(Model.Description.ToHtmlString())</span>
+            }
+
+            if(Model.Image?.Src != null)
+            {
+                <div><img src="@Model.Image.Src"/></div>
+            }
         }
-    }
-</div>
+    </div>
+</section>

@@ -350,3 +350,5 @@ MigrationBackup/
 .ionide/
 
 Recipes/App_Data/TEMP/
+/Recipes/App_Data/cache
+/Recipes/App_Data/Models

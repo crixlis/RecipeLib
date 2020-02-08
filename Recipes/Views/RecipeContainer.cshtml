@@ -32,7 +32,7 @@
                                 <ul>
                                     @foreach (Recipe recipe in cat.Children)
                                     {
-                                        <li>@recipe.Name</li>
+                                        <li><a href="@recipe.Url">@recipe.Name</a></li>
                                     }
                                 </ul>
 
