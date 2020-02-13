@@ -3,7 +3,7 @@
     Layout = "master.cshtml";
 }
 
-<section class="section section">
+<section class="section section container">
     <div>
         @{
             <span>@(!string.IsNullOrEmpty(@Model.Name) ? $"Gerecht : { @Model.Name}" : "Geen gerechtnaam")</span><br />
@@ -43,7 +43,7 @@
 
             if(Model.Image?.Src != null)
             {
-                <div><img src="@Model.Image.Src"/></div>
+                <div><img src="@Model.Image.Src" class="img-fluid"></div>
             }
         }
     </div>

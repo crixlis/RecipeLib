@@ -55,9 +55,9 @@
 
     </header>
 
-    <main>
-        @RenderBody()
-        <footer class="container">
+    <main class="container">
+        <div>@RenderBody()</div>
+        <footer>
             <p class="float-right"><a href="#">Back to top</a></p>
             <p>&copy; @DateTime.Now.Year @(home.FooterHeader) -  @(home.FooterDescription)</p>
         </footer>
